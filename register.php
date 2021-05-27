@@ -9,7 +9,9 @@ $confirmation = $_POST['confirmation'];
 
 
 if($password === $confirmation){
-    echo $username. '<br>' . $email. '<br>'.$password.'<br>'. $confirmation;
+    $password_encrypt =password_hash ($password, PASSWORD_DEFAULT);
+    $confirmation_encrypt =password_hash ($confirmation, PASSWORD_DEFAULT);
+    echo $username. '<br>' . $email. '<br>'.$password_encrypt.'<br>'. $confirmation_encrypt;
 }else{
     echo 'les mots de passe ne correspondent pas';
 }
