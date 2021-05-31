@@ -7,7 +7,7 @@
     <title>Backoffice</title>
 </head>
 <body>
-    <form action="register.php" method="post">
+    <form action="register-form-handler.php" method="post">
 <div>
 <label for="input-username">Nom  : </label>
 <input type="text" name="username" id="input-username">
