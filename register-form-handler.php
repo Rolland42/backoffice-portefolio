@@ -17,7 +17,7 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['ema
             $query->bindValue(':email', $email, PDO::PARAM_STR);
             $query->bindValue(':password', $passwordhash, PDO::PARAM_STR);
             $query->execute();
-            echo 'succes';
+            echo 'success';
             echo '<br><a href="index.php">retour</a>';
       }else{
             echo 'les mots de passe ne correspondent pas';
