@@ -1,12 +1,14 @@
 <?php
-require_once('db-connect.php');
+
 if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['confirmation']) && !empty($_POST['confirmation'])){
+      
+      if ($_POST['password'] === $_POST['confirmation']) {
+      require_once('db-connect.php');
       $username = strip_tags( $_POST['username']);
       $email = strip_tags($_POST['email']);
       $password = strip_tags($_POST['password']);
       $confirmation = strip_tags($_POST['confirmation']);
-      
-      if ($password === $confirmation) {
+     
             $passwordhash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO users(username,email,password) VALUES(:username,:email,:password)";
