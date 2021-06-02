@@ -1,6 +1,6 @@
 	 project_title		
-	3	project_begin	datetime			
-	4	project_end	datetime			
+	3	project_begin				
+	4	project_end			
 	5	project_thumbail	
 	6	project_context	
 	7	project_specs	
@@ -10,3 +10,6 @@
 	11	project_collabs	int(11)			
 	12	project_screenshots_gallery	
 	13	project_technologies
+
+
+    isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['confirmation']) && !empty($_POST['confirmation'])
