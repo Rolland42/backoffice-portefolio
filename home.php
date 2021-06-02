@@ -1,7 +1,12 @@
 <?php
 session_start();
+
+if($_SESSION['username']){
 echo $_SESSION['success'];
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,6 @@ echo $_SESSION['success'];
     <title>Home</title>
 </head>
 <body>
-    
+   <a href="add-form.php"><button>ajoutez un projet</button></a> 
 </body>
 </html>

@@ -1,0 +1,12 @@
+	 project_title		
+	3	project_begin	datetime			
+	4	project_end	datetime			
+	5	project_thumbail	
+	6	project_context	
+	7	project_specs	
+	8	project_githublink	
+	9	project_link	
+	10	project_design_file_link	
+	11	project_collabs	int(11)			
+	12	project_screenshots_gallery	
+	13	project_technologies
