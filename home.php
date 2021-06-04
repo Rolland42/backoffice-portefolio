@@ -4,14 +4,13 @@ session_start();
 if($_SESSION['username']){
 echo $_SESSION['success'];
 require_once('db-connect.php');
-$sql= 'SELECT * FROM` table_projects`';
+$sql= 'SELECT * FROM `projects`';
 $query= $db->prepare($sql);
 $query->execute();
 $result= $query->fetchAll(PDO::FETCH_ASSOC);
 //var_dump($result);
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
