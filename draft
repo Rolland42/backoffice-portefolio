@@ -1,15 +1,13 @@
-	 project_title		
-	3	project_begin				
-	4	project_end			
-	5	project_thumbail	
-	6	project_context	
-	7	project_specs	
-	8	project_githublink	
-	9	project_link	
-	10	project_design_file_link	
-	11	project_collabs	int(11)			
-	12	project_screenshots_gallery	
-	13	project_technologies
+	 	project_title		
+		project_begin				
+		project_end			
+		project_context	
+		project_specs	
+  	    project_githublink	
+		project_link	
+		
 
 
-    isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['confirmation']) && !empty($_POST['confirmation'])
+    isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['email']) 
+	&& !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) 
+	&& isset($_POST['confirmation']) && !empty($_POST['confirmation'])
