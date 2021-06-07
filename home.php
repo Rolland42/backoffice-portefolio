@@ -2,13 +2,13 @@
 session_start();
 
 if($_SESSION['username']){
-echo $_SESSION['success'];
-require_once('db-connect.php');
-$sql= 'SELECT * FROM `projects`';
-$query= $db->prepare($sql);
-$query->execute();
-$result= $query->fetchAll(PDO::FETCH_ASSOC);
-//var_dump($result);
+    echo $_SESSION['success'];
+    require_once('db-connect.php');
+    $sql= 'SELECT * FROM `projects`';
+    $query= $db->prepare($sql);
+    $query->execute();
+    $result= $query->fetchAll(PDO::FETCH_ASSOC);
+    //var_dump($result);
 }
 ?>
 
@@ -21,11 +21,18 @@ $result= $query->fetchAll(PDO::FETCH_ASSOC);
     <title>Home</title>
 </head>
 <body>
-   <a href="add-form.php"><button>ajoutez un projet</button></a> 
+   <a href="add-form.php"><button>ajoutez un projet</button></a>
+
    <?php
     foreach ($result as $project) {
-        echo '<div class="color">' . $project['project_title'] . ' | ' . $project['project_context'] . '</div>';
-    }
+        ?>
+        <a href="project-detail.php?id=<?=$project['project_id'] ?>"><?=$project['project_title']?></a>
+
+<?php
+}
+
+
+
    ?>
 </body>
 </html>
