@@ -34,7 +34,7 @@ if ($_SESSION['username']) {
         <?=$result['project_context']?> 
         <?=$result['project_specs']?>
 
-        <a href="project-delete.php?id=<?=$result['project_id'] ?>">supprimer « <?=$result['project_title']?> »</a>
+        <a href="project-edit.php?id=<?=$result['project_id'] ?>">modifier « <?=$result['project_title']?> »</a>
         <br><a href="home.php"><button>Retour</button></a>
 </body>
 </html>
