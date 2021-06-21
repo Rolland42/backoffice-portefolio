@@ -6,6 +6,7 @@ if ($_SESSION['username']) {
 
         if (
             isset($_POST['project_title']) && !empty($_POST['project_title']) &&
+            //isset($_POST['project_picture']) && !empty($_POST['project_picture']) &&
             isset($_POST['project_begin']) && !empty($_POST['project_begin']) &&
             isset($_POST['project_end']) && !empty($_POST['project_end']) &&
             isset($_POST['project_context']) && !empty($_POST['project_context']) &&
@@ -16,6 +17,7 @@ if ($_SESSION['username']) {
 
             require_once("db-connect.php");
             $title = strip_tags($_POST['project_title']);
+            //$picture = strip_tags($_POST['project_picture']);
             $begin = strip_tags($_POST['project_begin']);
             $end = strip_tags($_POST['project_end']);
             $context = strip_tags($_POST['project_context']);
@@ -23,12 +25,17 @@ if ($_SESSION['username']) {
             $githublink = strip_tags($_POST['project_githublink']);
             $link = strip_tags($_POST['project_link']);
 
+            if(isset($_FILES['project_picture']) && !empty($_FILES['project_picture'])){
+                $nomOrigine = $_FILES['project_picture']['name'];
+                $elementschemin = pathinfo($nomOrigine);
+                var_dump($elementschemin);
 
             $sql = 'INSERT INTO `projects`(`project_title`, `project_begin`, `project_end`, `project_context`, `project_specs`, `project_githublink`, `project_link`) VALUES(:project_title, :project_begin, :project_end, :project_context, :project_specs, :project_githublink, :project_link);';
 
             $query = $db->prepare($sql);
 
             $query->bindValue(':project_title', $title, PDO::PARAM_STR);
+            //$query->bindValue(':project_picture', $picture, PDO::PARAM_STR);
             $query->bindValue(':project_begin', $begin, PDO::PARAM_STR);
             $query->bindValue(':project_end', $end, PDO::PARAM_STR);
             $query->bindValue(':project_context', $context, PDO::PARAM_STR);
@@ -38,13 +45,23 @@ if ($_SESSION['username']) {
 
             $query->execute();
             echo 'c\'est ok';
-            echo ' <br><a href="home.php"> retour</a>';
+            echo ' <br> <a href="home.php"> retour</a>';
         } else {
-            echo 'remplissez tous les champs !';
+            echo 'le fichier n\'a pas été importer';
         }
+    } else {
+        echo 'remplissez tous les champs';'<br> <a href="add.form.php"> retour</a>';
+    }
     } else {
         echo 'pour accéder à cette page, vous devez publier un projet';
     }
 } else {
     echo 'vous n\'êtes pas identifié';
-}
+  }
+
+
+
+
+
+
+  ?>
